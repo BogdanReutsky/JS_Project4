@@ -22,8 +22,8 @@ button, input {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 @media screen and (width >= 480px) {
@@ -42,5 +42,9 @@ button, input {
   .container {
     width: 1200px;
   }
+}
+
+.logo {
+  width: 200px;
 }
 /*# sourceMappingURL=JS_Project4.932cab8e.css.map */
