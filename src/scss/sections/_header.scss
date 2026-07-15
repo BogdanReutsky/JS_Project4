@@ -1,3 +1,55 @@
-.logo{
-    width: 200px;    
+.findEvents{
+    background-image: url(../pic.webp);
+    background-size: cover;
+    height: 550px;
+
+
+
+    .title_events{
+        font-size: 50px;
+        padding-top: 40px;
+        color: #DC56C5;
+
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;   
+    }
+
+    .search-box {
+        margin-top: 55px;
+
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }   
+
+    .search {
+        width: 270px;
+        height: 40px;
+        padding: 0 20px;
+        border: none;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+        font-size: 16px;
+        outline: none;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            &:focus {
+                background-color: rgba(255, 255, 255, 0.35);
+            }
+    }
+
 }
+
+
