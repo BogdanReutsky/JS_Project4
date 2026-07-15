@@ -41,6 +41,84 @@ button, input {
   }
 }
 
-.logo {
+.findEvents {
+  background-image: url(../pic.webp);
+  background-size: cover;
+  height: 550px;
+}
+.findEvents .title_events {
+  font-size: 50px;
+  padding-top: 40px;
+  color: #DC56C5;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.findEvents .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 200px;
+}
+.findEvents .search-box {
+  margin-top: 55px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.findEvents .search {
+  width: 270px;
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+}
+.findEvents .search::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.findEvents .search::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.findEvents .search:focus {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+body {
+  background-color: black;
+}
+
+.list {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 180px;
+}
+
+.eventImage {
+  margin-bottom: 5px;
+  width: 180px;
+}
+
+.eventName {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #DC56C5;
+}
+
+.eventData {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+.eventAdress {
+  font-size: 17px;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
