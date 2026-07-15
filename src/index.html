@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css">
-    <link rel="stylesheet" href="./scss/main.css">
 </head>
 <body>
 
@@ -15,18 +14,20 @@
 
             <div class="container_header">
 
-                <h1 class="title_events">FIND BEST EVENTS AROUND THE WORLD</h1>
+                <h1 class="title_events">FIND BEST EVENTS<br>AROUND THE WORLD</h1>
                 <img class="logo" src="./logo.webp" alt="">
-                <input class="search" type="text" placeholder="TEST">
-                <input class="select" type="text" placeholder="TEST">
 
-                <select id="category" name="category">
-                    <option value="">Choose country</option>
-                    <option value="USA">United States</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="DE">Germany</option>
-                    <option value="FR">France</option>
-                </select>
+                <div class="search-box">
+                    <input class="search start" type="text" placeholder="TEST">
+
+
+                    <select class="search countri" id="category" name="category">
+                        <option value="USA">United States</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="DE">Germany</option>
+                        <option value="FR">France</option>
+                    </select>
+                </div>
 
             </div>
 
