@@ -1,0 +1,35 @@
+body{
+    background-color: black
+}
+
+.list{
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.item{
+    width: 180px;
+}
+
+.eventImage{
+    margin-bottom: 5px;
+    width: 180px;
+}
+
+.eventName{
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #DC56C5;
+}
+
+.eventData{
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+.eventAdress{
+    font-size: 17px;
+    color: white;
+}
