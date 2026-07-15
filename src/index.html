@@ -8,15 +8,47 @@
     <link rel="stylesheet" href="./scss/main.css">
 </head>
 <body>
-    <div class="container">
-<header class="findEvents">
-<h1 class="title_events">FIND BEST EVENTS AROUND THE WORLD</h1>
-<img class="logo" src="./logo.webp" alt="">
-<input class="search" type="text" placeholder="TEST">
-<input class="select" type="text" placeholder="TEST">
-</header>
-    <ul class="list"></ul>
-    </div>
+
+    
+        
+        <header class="findEvents">
+
+            <div class="container_header">
+
+                <h1 class="title_events">FIND BEST EVENTS AROUND THE WORLD</h1>
+                <img class="logo" src="./logo.webp" alt="">
+                <input class="search" type="text" placeholder="TEST">
+                <input class="select" type="text" placeholder="TEST">
+
+                <select id="category" name="category">
+                    <option value="">Choose country</option>
+                    <option value="USA">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="DE">Germany</option>
+                    <option value="FR">France</option>
+                </select>
+
+            </div>
+
+        </header>
+
+
+        <main>
+            <div class="container_main">
+                <ul class="list"></ul>
+            </div>
+        </main>
+        
+
+        <footer>
+            <div class="container_footer">
+                <span class="text_footer">© 2021 | All Rights Reserved | Developed with ♥ by GoIT Students</span>
+            </div>
+        </footer>
+
+
+
+
     <script type="module" src="./app.js"></script>
 </body>
 </html>
