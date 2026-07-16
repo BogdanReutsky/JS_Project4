@@ -1,0 +1,26 @@
+.modal {
+    width: 930px;
+    height: 1023px;
+    background-color: #FFF2FD;
+
+
+    h2 {
+        font-size: 24px;
+        color: #DC56C5;
+    }
+
+    .modal_btn{
+        padding: 10px 40px;
+        border: 1px solid #4C00FE;
+        background-color: white;
+        color: #4C00FE;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(76, 0, 255, 0.35);
+        }
+    }
+}

@@ -20,7 +20,7 @@ getEvents().then(res => console.log(res[19]))
 function render(array){
     const item = array.map(({name, dates, images, _embedded})=>{
         return `<li class="item">
-    <img class="eventImage" src="${images[1].url}" alt="">
+    <img class="eventImage" src="${images[1].url}" data-src="${images[images.length - 1].url}" alt="">
     <h3 class="eventName">${name}</h3>
     <p class="eventData">${dates.start.localDate}</p>
     <p class="eventAdress">${_embedded.venues[0].city?.name}</p>
@@ -35,4 +35,4 @@ selectEl.addEventListener("change", async ()=>{
     return render(events)
 })
 
-// getEvents().then(res => render(res))
+getEvents().then(res => render(res))
