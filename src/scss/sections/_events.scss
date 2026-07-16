@@ -1,30 +1,35 @@
 body{
-    background-color: black
+    background-image: url("/src/body.webp");
 }
 
 .list{
     display: flex;
+    justify-content: center;
     gap: 60px;
     flex-wrap: wrap;
 }
 
 .item{
-    width: 180px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .eventImage{
-    margin-bottom: 5px;
     width: 180px;
+    border-radius: 50px 0 50px 0;
 }
 
 .eventName{
-    margin-bottom: 5px;
     font-size: 16px;
     color: #DC56C5;
+    text-align: center;
 }
 
 .eventData{
-    margin-bottom: 5px;
     font-size: 16px;
     color: white;
 }
