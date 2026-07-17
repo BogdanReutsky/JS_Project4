@@ -1,3 +1,5 @@
+import debounce from "lodash.debounce";
+
 const inputEl = document.querySelector(".start")
 const listEl = document.querySelector(".list")
 const selectEl = document.querySelector(".country")
@@ -5,14 +7,15 @@ const selectEl = document.querySelector(".country")
 
 const URL = "https://app.ticketmaster.com/"
 const API_KEY = "Zqwp16d8s8fASQAt6sNhVwQmnMgHWNgA"
-const page = 1
-const size = 20
+let page = 1
+let size = 20
+let search = ""
 
 async function getEvents(){
 const country = selectEl.value
-const res = await fetch(`${URL}discovery/v2/events.json?countryCode=${country}&apikey=${API_KEY}&page=${page}&size=${size}`)
+const res = await fetch(`${URL}discovery/v2/events.json?countryCode=${country}&apikey=${API_KEY}&keyword=${search}&page=${page}&size=${size}`)
 const data = await res.json()
-return data._embedded.events || []
+return data._embedded?.events || []
 }
 
 getEvents().then(res => console.log(res[19]))
@@ -27,12 +30,43 @@ function render(array){
     </li>`
     }).join("")
 
-    listEl.innerHTML = item
+    listEl.insertAdjacentHTML("beforeend", item)
 }
 
-selectEl.addEventListener("change", async ()=>{
+inputEl.addEventListener("input",  debounce(async(e)=>{
+    search = e.target.value
+    
+    console.log(search);
+    
+
+    const res = await getEvents()
+
+    render(res)
+}, 500))
+
+selectEl.addEventListener("change", async()=>{
+    listEl.innerHTML = ""
     const events = await getEvents()
     return render(events)
 })
 
 getEvents().then(res => render(res))
+
+
+const elementEl = document.querySelector(".element")
+
+const observer = new IntersectionObserver((entry)=>{
+
+  entry.forEach(async (e)=>{
+    if(e.isIntersecting){  
+      page += 1
+      const res = await getEvents(search, page)
+      await render(res)
+    }
+  })
+  
+},{
+  rootMargin: "200px"
+})
+
+observer.observe(elementEl)
