@@ -3,8 +3,6 @@ import debounce from "lodash.debounce";
 const inputEl = document.querySelector(".start")
 const listEl = document.querySelector(".list")
 const selectEl = document.querySelector(".country")
-
-
 const URL = "https://app.ticketmaster.com/"
 const API_KEY = "Zqwp16d8s8fASQAt6sNhVwQmnMgHWNgA"
 let page = 1
@@ -18,8 +16,6 @@ const data = await res.json()
 return data._embedded?.events || []
 }
 
-getEvents().then(res => console.log(res[19]))
-
 function render(array){
     const item = array.map(({id, name, dates, images, _embedded})=>{
         return `<li class="item">
@@ -29,20 +25,15 @@ function render(array){
     <p class="eventAdress">${_embedded.venues[0].city?.name}</p>
     </li>`
     }).join("")
-
     listEl.insertAdjacentHTML("beforeend", item)
 }
 
 inputEl.addEventListener("input",  debounce(async(e)=>{
     search = e.target.value
-    
-    console.log(search);
-    
-
+    listEl.innerHTML = ""
     const res = await getEvents()
-
     render(res)
-}, 500))
+}, 1000))
 
 selectEl.addEventListener("change", async()=>{
     listEl.innerHTML = ""
@@ -51,7 +42,6 @@ selectEl.addEventListener("change", async()=>{
 })
 
 getEvents().then(res => render(res))
-
 
 const elementEl = document.querySelector(".element")
 
