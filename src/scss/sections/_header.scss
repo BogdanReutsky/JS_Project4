@@ -12,7 +12,7 @@
 
     .title_events{
         font-size: 18px;
-        padding-top: 25px;
+        padding-top: 78px;
         color: #DC56C5;
 
         display: flex;
@@ -21,11 +21,10 @@
 
         @media screen and (min-width: 768px){
           font-size: 30px;
-          padding-top: 27px;
+          padding-top: 40px;
         }
         @media screen and (min-width: 1200px){
             font-size: 50px;
-            padding-top: 40px;
         }
     }
 
@@ -46,7 +45,7 @@
     .search-box {
         display: flex;
         flex-direction: column;
-        margin-top: 55px;
+        margin-top: 25px;
         justify-content: center;
         gap: 25px;
         justify-self: center;
@@ -55,7 +54,11 @@
             display: flex;
             flex-direction: row;
             gap: 30px;
+            margin-top: 27px;
   }
+        @media screen and (min-width: 1200px){
+          margin-top: 52px;
+  }   
     }   
 
     .search {
