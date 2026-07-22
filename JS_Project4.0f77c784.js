@@ -720,6 +720,8 @@ var _modalJs = require("./modal.js");
 
 },{"./scss/main.scss":"4Pg3x","./base.js":"iGOEc","./modal.js":"eEFgi"}],"4Pg3x":[function() {},{}],"iGOEc":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "render", ()=>render);
 var _lodashDebounce = require("lodash.debounce");
 var _lodashDebounceDefault = parcelHelpers.interopDefault(_lodashDebounce);
 const inputEl = document.querySelector(".start");
@@ -1091,6 +1093,7 @@ exports.export = function(dest, destName, get) {
 },{}],"eEFgi":[function(require,module,exports,__globalThis) {
 var _basiclightbox = require("basiclightbox");
 var _basicLightboxMinCss = require("basiclightbox/dist/basicLightbox.min.css");
+var _base = require("./base");
 const listEl = document.querySelector(".list");
 let instance = null;
 const URL = "https://app.ticketmaster.com/";
@@ -1099,9 +1102,12 @@ listEl.addEventListener("click", async (e)=>{
     if (e.target.nodeName !== "IMG") return;
     const id = e.target.dataset.id;
     const event = await getElementById(id);
+    const author = event._embedded?.attractions?.[0]?.name;
     const largeImg = e.target.dataset.src;
     instance = _basiclightbox.create(`
     <div class="modal">
+
+        <button class="modal_close" type="button">&times;</button>
 
         <img class="modal_avatar" src="${largeImg}" alt="">
 
@@ -1115,7 +1121,7 @@ listEl.addEventListener("click", async (e)=>{
 
             <div class="modal_info">
                <h2>INFO</h2> 
-               <p>${event.info ?? "\u0406\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044F \u0432\u0456\u0434\u0441\u0443\u0442\u043D\u044F"}</p> 
+               <p>${event.info ?? "information is missing"}</p> 
                
                <h2>WHEN</h2> 
                <p>${event.dates.start.localDate}</p> 
@@ -1129,10 +1135,11 @@ listEl.addEventListener("click", async (e)=>{
                <p>${event._embedded?.attractions?.[0]?.name ?? "\u041D\u0435\u0432\u0456\u0434\u043E\u043C\u043E"}</p> 
                
                <h2>PRICES</h2> 
-               <p></p> 
-               <a href="">BUY TICKETS</a> 
-               <p></p> 
-               <a href="">BUY TICKETS</a> 
+                <p>#</p> 
+                <a href="${event.url}">BUY TICKETS</a> 
+                <p>#</p> 
+                <a href="${event.url}">BUY TICKETS</a> 
+
             </div> 
 
         </div>
@@ -1143,6 +1150,18 @@ listEl.addEventListener("click", async (e)=>{
     </div>
     `);
     instance.show();
+    document.querySelector(".modal_close").addEventListener("click", ()=>{
+        instance.close();
+        instance = null;
+        document.removeEventListener("keydown", closeModal);
+    });
+    document.querySelector(".modal_btn").addEventListener("click", async ()=>{
+        if (!author) return;
+        const events = await getEventsByAuthor(author);
+        listEl.innerHTML = "";
+        (0, _base.render)(events);
+        instance.close();
+    });
     document.addEventListener("keydown", closeModal);
 });
 async function closeModal(e) {
@@ -1156,8 +1175,13 @@ async function getElementById(id) {
     const res = await fetch(`${URL}discovery/v2/events/${id}.json?apikey=${API_KEY}`);
     return await res.json();
 }
+async function getEventsByAuthor(author) {
+    const res = await fetch(`${URL}discovery/v2/events.json?keyword=${encodeURIComponent(author)}&apikey=${API_KEY}`);
+    const data = await res.json();
+    return data._embedded?.events || [];
+}
 
-},{"basiclightbox":"io0Ts","basiclightbox/dist/basicLightbox.min.css":"lf3c2"}],"io0Ts":[function(require,module,exports,__globalThis) {
+},{"basiclightbox":"io0Ts","basiclightbox/dist/basicLightbox.min.css":"lf3c2","./base":"iGOEc"}],"io0Ts":[function(require,module,exports,__globalThis) {
 !function(e) {
     module.exports = e();
 }(function() {

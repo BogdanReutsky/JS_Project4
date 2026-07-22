@@ -20,7 +20,7 @@ var e,t="u">typeof globalThis?globalThis:"u">typeof self?self:"u">typeof window?
 
             <div class="modal_info">
                <h2>INFO</h2> 
-               <p>${n.info??"Інформація відсутня"}</p> 
+               <p>${n.info??"information is missing"}</p> 
                
                <h2>WHEN</h2> 
                <p>${n.dates.start.localDate}</p> 
@@ -48,4 +48,4 @@ var e,t="u">typeof globalThis?globalThis:"u">typeof self?self:"u">typeof window?
 
     </div>
     `)).show(),document.querySelector(".modal_close").addEventListener("click",()=>{j.close(),j=null,document.removeEventListener("keydown",N)}),document.querySelector(".modal_btn").addEventListener("click",async()=>{if(!o)return;let e=await k(o);M.innerHTML="",_(e),j.close()}),document.addEventListener("keydown",N)});
-//# sourceMappingURL=JS_Project4.f6737d43.js.map
+//# sourceMappingURL=JS_Project4.d006cb22.js.map
