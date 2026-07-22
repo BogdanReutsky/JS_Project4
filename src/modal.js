@@ -41,7 +41,7 @@ listEl.addEventListener("click", async (e) => {
 
             <div class="modal_info">
                <h2>INFO</h2> 
-               <p>${event.info ?? "Інформація відсутня"}</p> 
+               <p>${event.info ?? "information is missing"}</p> 
                
                <h2>WHEN</h2> 
                <p>${event.dates.start.localDate}</p> 
