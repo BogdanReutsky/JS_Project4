@@ -1,33 +1,59 @@
 .findEvents{
     background-image: url(../pic.webp);
-    background-size: cover;
-    height: 550px;
+    padding-bottom: 52px;
 
+    @media screen and (min-width: 768px){
+    padding-bottom: 123px;
+  }
+  @media screen and (min-width: 1200px){
+    padding-bottom: 133px;
+  }
 
 
     .title_events{
-        font-size: 50px;
+        font-size: 18px;
         padding-top: 40px;
         color: #DC56C5;
 
         display: flex;
         justify-content: center;
         text-align: center;
+
+        @media screen and (min-width: 768px){
+    font-size: 30px;
+  }
+  @media screen and (min-width: 1200px){
+   font-size: 50px;
+  }
     }
 
     .logo{
         position: absolute;
         top: 0;
         left: 0;
-        width: 200px;   
+        width: 130px;
+
+        @media screen and (min-width: 768px){
+    width: 150px;
+  }
+  @media screen and (min-width: 1200px){
+    width: 200px;
+  }   
     }
 
     .search-box {
-        margin-top: 55px;
-
         display: flex;
+        flex-direction: column;
+        margin-top: 55px;
         justify-content: center;
-        gap: 30px;
+        gap: 25px;
+        justify-self: center;
+
+        @media screen and (min-width: 768px){
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+  }
     }   
 
     .search {
