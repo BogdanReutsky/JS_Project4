@@ -1,5 +1,6 @@
 import * as basicLightbox from "basiclightbox";
 import "basiclightbox/dist/basicLightbox.min.css";
+import { render } from "./base";
 
 const listEl = document.querySelector(".list")
 
@@ -19,10 +20,14 @@ listEl.addEventListener("click", async (e) => {
 
     const event = await getElementById(id);
 
+    const author = event._embedded?.attractions?.[0]?.name;
+
     const largeImg = e.target.dataset.src;
 
     instance = basicLightbox.create(`
     <div class="modal">
+
+        <button class="modal_close" type="button">&times;</button>
 
         <img class="modal_avatar" src="${largeImg}" alt="">
 
@@ -50,10 +55,11 @@ listEl.addEventListener("click", async (e) => {
                <p>${event._embedded?.attractions?.[0]?.name ?? "Невідомо"}</p> 
                
                <h2>PRICES</h2> 
-               <p></p> 
-               <a href="">BUY TICKETS</a> 
-               <p></p> 
-               <a href="">BUY TICKETS</a> 
+                <p>#</p> 
+                <a href="${event.url}">BUY TICKETS</a> 
+                <p>#</p> 
+                <a href="${event.url}">BUY TICKETS</a> 
+
             </div> 
 
         </div>
@@ -65,6 +71,25 @@ listEl.addEventListener("click", async (e) => {
     `)
 
     instance.show();
+
+    document.querySelector(".modal_close").addEventListener("click", () => {
+        instance.close();
+        instance = null;
+        document.removeEventListener("keydown", closeModal);
+    });
+
+    document.querySelector(".modal_btn").addEventListener("click", async () => {
+        if (!author) {
+            return
+        };
+
+        const events = await getEventsByAuthor(author);
+
+        listEl.innerHTML = "";
+        render(events);
+
+        instance.close();
+    });
 
     document.addEventListener("keydown", closeModal);
 
@@ -90,4 +115,16 @@ async function getElementById(id) {
 
     return await res.json();
     
+}
+
+
+async function getEventsByAuthor(author) {
+
+    const res = await fetch(
+        `${URL}discovery/v2/events.json?keyword=${encodeURIComponent(author)}&apikey=${API_KEY}`
+    );
+
+    const data = await res.json();
+
+    return data._embedded?.events || [];
 }

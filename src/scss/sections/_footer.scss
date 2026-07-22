@@ -1,7 +1,12 @@
 .text_footer {
     color: #939393;
+    font-size: 14px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+        @media screen and (min-width: 768px){
+          font-size: 16px;
+        }
+
 }
