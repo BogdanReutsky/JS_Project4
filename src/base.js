@@ -16,7 +16,7 @@ const data = await res.json()
 return data._embedded?.events || []
 }
 
-function render(array){
+export function render(array){
     const item = array.map(({id, name, dates, images, _embedded})=>{
         return `<li class="item">
     <img class="eventImage" src="${images[1].url}" data-id="${id}" data-src="${images[images.length - 1].url}" alt="">
