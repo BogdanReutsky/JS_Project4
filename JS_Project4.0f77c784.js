@@ -1132,7 +1132,7 @@ listEl.addEventListener("click", async (e)=>{
                <p>${event._embedded.venues[0].name}</p> 
                
                <h2>WHO</h2> 
-               <p>${event._embedded?.attractions?.[0]?.name ?? "\u041D\u0435\u0432\u0456\u0434\u043E\u043C\u043E"}</p> 
+               <p>${event._embedded?.attractions?.[0]?.name ?? "Undefined"}</p> 
                
                <h2>PRICES</h2> 
                 <p>#</p> 

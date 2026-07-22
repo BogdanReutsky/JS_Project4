@@ -65,21 +65,20 @@ button, input {
   color: #dc56c5;
   text-align: center;
   justify-content: center;
-  padding-top: 25px;
+  padding-top: 78px;
   font-size: 18px;
   display: flex;
 }
 
 @media screen and (width >= 768px) {
   .findEvents .title_events {
-    padding-top: 27px;
+    padding-top: 40px;
     font-size: 30px;
   }
 }
 
 @media screen and (width >= 1200px) {
   .findEvents .title_events {
-    padding-top: 40px;
     font-size: 50px;
   }
 }
@@ -108,7 +107,7 @@ button, input {
   justify-content: center;
   justify-self: center;
   gap: 25px;
-  margin-top: 55px;
+  margin-top: 25px;
   display: flex;
 }
 
@@ -116,7 +115,14 @@ button, input {
   .findEvents .search-box {
     flex-direction: row;
     gap: 30px;
+    margin-top: 27px;
     display: flex;
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .findEvents .search-box {
+    margin-top: 52px;
   }
 }
 
