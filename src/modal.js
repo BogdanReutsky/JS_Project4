@@ -52,7 +52,7 @@ listEl.addEventListener("click", async (e) => {
                <p>${event._embedded.venues[0].name}</p> 
                
                <h2>WHO</h2> 
-               <p>${event._embedded?.attractions?.[0]?.name ?? "Невідомо"}</p> 
+               <p>${event._embedded?.attractions?.[0]?.name ?? "Undefined"}</p> 
                
                <h2>PRICES</h2> 
                 <p>#</p> 
