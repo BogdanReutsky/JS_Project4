@@ -18,7 +18,6 @@ button, input {
 }
 
 .container {
-  outline: 2px solid red;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -45,18 +44,20 @@ button, input {
 }
 
 .findEvents {
-  background-image: url("pic.5bcb4c02.webp");
+  background-image: url("picMobile.1ae7983c.webp");
   padding-bottom: 52px;
 }
 
 @media screen and (width >= 768px) {
   .findEvents {
+    background-image: url("picTablet.2f45a6e0.webp");
     padding-bottom: 123px;
   }
 }
 
 @media screen and (width >= 1200px) {
   .findEvents {
+    background-image: url("picPc.d72c366d.webp");
     padding-bottom: 133px;
   }
 }
@@ -261,7 +262,19 @@ select option {
 }
 
 body {
-  background-image: url("body.444c4d76.webp");
+  background-image: url("bodyMobile.acd84646.webp");
+}
+
+@media screen and (width >= 768px) {
+  body {
+    background-image: url("bodyTablet.d8eb179f.webp");
+  }
+}
+
+@media screen and (width >= 1200px) {
+  body {
+    background-image: url("bodyPc.c01acf2e.webp");
+  }
 }
 
 .list {
@@ -347,12 +360,14 @@ body {
   color: #939393;
   justify-content: center;
   align-items: center;
+  padding-top: 60px;
   font-size: 14px;
   display: flex;
 }
 
 @media screen and (width >= 768px) {
   .text_footer {
+    padding-top: 80px;
     font-size: 16px;
   }
 }
