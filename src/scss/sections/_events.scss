@@ -1,5 +1,13 @@
 body{
-    background-image: url("/src/body.webp");
+
+  background-image: url("/src/images/bodyMobile.webp");
+  
+    @media screen and (min-width: 768px){
+      background-image: url("/src/images/bodyTablet.webp");
+  }
+  @media screen and (min-width: 1200px){
+    background-image: url("/src/images/bodyPc.webp");
+  }
 }
 
 .list{
