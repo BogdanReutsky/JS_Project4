@@ -1,11 +1,13 @@
 .findEvents{
-    background-image: url(../pic.webp);
+    background-image: url("/src/images/picMobile.webp");
     padding-bottom: 52px;
 
     @media screen and (min-width: 768px){
+    background-image: url("/src/images/picTablet.webp");
     padding-bottom: 123px;
   }
   @media screen and (min-width: 1200px){
+    background-image: url("/src/images/picPc.webp");
     padding-bottom: 133px;
   }
 
