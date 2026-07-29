@@ -1125,7 +1125,7 @@ listEl.addEventListener("click", async (e)=>{
                
                <h2>WHEN</h2> 
                <p>${event.dates.start.localDate}</p> 
-               <p>${event.dates.start.localTime.slice(0, 5)} (${event.dates.timezone})</p> 
+               <p>${event.dates.start.localTime?.slice(0, 5) ?? "Time is missing"} (${event.dates.timezone})</p> 
                
                <h2>WHERE</h2> 
                <p>${event._embedded.venues[0].city.name}, ${event._embedded.venues[0].country.name}</p> 
