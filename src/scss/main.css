@@ -171,6 +171,8 @@ button, input {
   height: 641px;
 }
 .modal .modal_image img {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 360px;
   height: 641px;
   margin-top: 25px;
